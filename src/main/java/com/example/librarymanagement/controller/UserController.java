@@ -44,8 +44,7 @@ public class UserController {
             model.addAttribute("allUsers",userService.listUserByRoleId(roleId));
         }
         else{
-            List <LibraryUser> allUsers = userService.listAll();
-            model.addAttribute("allUsers", allUsers);
+            model.addAttribute("allUsers", userService.listAll());
         }
 
         return "view_users";
@@ -60,12 +59,9 @@ public class UserController {
 
     @RequestMapping("/add-user-form")
     public String addUserForm(Model model){
-        LibraryUser newuser = new LibraryUser();
-        model.addAttribute("newUser", newuser);
-        List<UserRole> roles = roleService.getAllRoles();
-        model.addAttribute("roles" , roles);
-        List<Status> userstatus = statusService.getAllStatus();
-        model.addAttribute("userstatus" , userstatus);
+        model.addAttribute("newUser", new LibraryUserDTO());
+        model.addAttribute("roles" , roleService.getAllRoles());
+        model.addAttribute("userstatus" , statusService.getAllStatus());
         return "new_user";
     }
     

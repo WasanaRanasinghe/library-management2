@@ -49,10 +49,10 @@ public class UserService {
         return message;
     }
 
-    public List<LibraryUser> listAll(){
+    public List<LibraryUserDTO> listAll(){
         List<LibraryUser> allUsers = userRepository.findAll();
         List<LibraryUserDTO> allDtoUsers = ObjectMapperUtils.mapAll(allUsers,LibraryUserDTO.class);
-        return userRepository.findAll();
+        return allDtoUsers;
     }
 
     public List<LibraryUser> listUserByRoleId(Long id){
