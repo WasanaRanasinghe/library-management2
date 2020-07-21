@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <title>Getting Started: Serving Web Content</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="https://image.flaticon.com/icons/png/512/130/130304.png" width="30" height="30" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Books<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Authors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">UserRoles</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/#">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="container p-3">
+    <form th:action="@{/books}" method="get">
+        <input id="textSearch" type="text" name="keyword">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div class="container">
+    <div align="center">
+        <br/><br/>
+        <h1>All Books</h1>
+        <a href="add-book-form">Add new Book</a>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Title</th>
+                <th>Language</th>
+                <th>Availability Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${allBooks}">
+                <td th:text="${book.bookId}">Book ID</td>
+                <td th:text="${book.bookTitle}">Book Title</td>
+                <td th:text="${book.language}">Language</td>
+                <td th:text="${book.availabilityStatus.statusDescription}">Availability</td>
+                <td>
+                    <a th:href="@{'/edit-book-form/'+${book.bookId}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete-book/'+${book.bookId}}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

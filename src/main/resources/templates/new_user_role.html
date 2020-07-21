@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <title>Add new User Role</title>
+</head>
+<body>
+<div align="center" class="p-5">
+    <div class="w-50 card" align="center">
+        <div class="card-body">
+            <div class="card-header">
+                <h1>Add new User Role</h1>
+            </div>
+            <br/><br/>
+            <form action="#" th:action="@{/userRole}" th:object="${newUserRole}" method="post">
+                <table border="0" cellpadding="10">
+                    <tr>
+                        <td>User Role</td>
+                        <td><input type='text' th:field="*{userRoleName}"/></td>
+                    </tr>
+                    <tr>
+                        <td collspan='2'>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

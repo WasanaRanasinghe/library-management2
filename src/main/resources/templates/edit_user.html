@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <title>Edit User</title>
+</head>
+<body>
+<div align="center" class="p-5">
+    <div class="w-50 card" align="center">
+        <div class="card-body">
+            <div class="card-header">
+                <h1>Edit user</h1>
+            </div>
+            <br/><br/>
+            <form action="#" th:action="@{/user}" th:object="${user}" method="post">
+                <table border="0" cellpadding="10">
+                    <tr>
+                        <td>User Id</td>
+                        <td><input type='text' th:field="*{userId}" readonly="readonly"/></td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type='text' th:field="*{firstName}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type='text' th:field='*{lastName}'/></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input type='text' th:field='*{address}'/></td>
+
+                    </tr>
+                    <tr hidden="true">
+                        <td>Password</td>
+                        <td><input type='text' th:field='*{password}'/></td>
+
+                    </tr>
+                    <tr>
+                        <td>User Status</td>
+                        <td>
+                            <select th:field="*{userStatus.statusCode}">
+                                <option value="">Choose..</option>
+                                <option th:each="status: ${userstatus}" th:value="${status.statusCode}"
+                                        th:text="${status.statusDescription}"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User Role</td>
+                        <td>
+                        <select th:field="*{userRoleId.userRoleId}">
+                            <option value="">Choose..</option>
+                            <option th:each="role: ${roles}" th:value="${role.userRoleId}"
+                                    th:text="${role.userRoleName}"></option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User Name</td>
+                        <td><input type='text' th:field="*{userName}" readonly="readonly"/></td>
+                    </tr>
+                    <tr>
+                        <td collspan='2'>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </td>
+                        <td collspan='2'>
+                            <a href="/users"><button class="btn btn-primary">Cancel</button></a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

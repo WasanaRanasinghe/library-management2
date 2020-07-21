@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <title>Getting Started: Serving Web Content</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0" action="/#">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="container p-3">
+    <form th:action="@{/books}" method="get">
+        <input id="textSearch" type="text" name="keyword">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div class="container">
+    <div align="center">
+        <br/><br/>
+        <h1>All Books</h1>
+        <a href="add-book-form">Add new Book</a>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Title</th>
+                <th>Language</th>
+                <th>Availability Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${allBooks}">
+                <td th:text="${book.bookId}">Book ID</td>
+                <td th:text="${book.bookTitle}">Book Title</td>
+                <td th:text="${book.language}">Language</td>
+                <td th:text="${book.availabilityStatus.statusDescription}">Availability</td>
+                <td>
+                    <a th:href="@{'/borrow/'+${book.bookId}}">Borrow</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

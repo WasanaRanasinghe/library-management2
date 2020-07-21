@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <title>Welcome</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="https://image.flaticon.com/icons/png/512/130/130304.png" width="30" height="30" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/books">Books</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Authors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">UserRoles</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/#">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="h-100 w-100 view"
+     style="background-image: url('https://image.shutterstock.com/image-photo/pile-various-books-on-bright-260nw-1014240301.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="mask rgba-gradient align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 wow fadeInLeft"
+                     data-wow-delay="0.3s">
+                    <p class="h1-responsive font-weight-bold mt-sm-5" align="center">Welcome to our Library </p>
+                    <hr class="hr-light">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

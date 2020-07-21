@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <title>All Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a class="navbar-brand" href="#">
+        <img src="https://image.flaticon.com/icons/png/512/130/130304.png" width="30" height="30" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/books">Books<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Authors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">UserRoles</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/#" >
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+<div align="center">
+    <br/><br/>
+    <h1>All Users</h1>
+    <a href="add-user-form">Add new User</a>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>User Status</th>
+            <th>User Role</th>
+            <th>Username</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${allUsers}">
+            <td th:text="${user.userId}">User Id</td>
+            <td th:text="${user.firstName}">first Name</td>
+            <td th:text="${user.lastName}">Last Name</td>
+            <td th:text="${user.address}">Address</td>
+            <td th:text="${user.userStatus.statusCode}">Status</td>
+            <td th:text="${user.userRoleId.userRoleName}">User Role</td>
+            <td th:text="${user.userName}">User Name</td>
+            <td>
+                <a th:href="@{'/edit-user-form/'+${user.userId}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete-user-form/'+${user.userId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
