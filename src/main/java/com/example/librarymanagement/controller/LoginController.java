@@ -31,11 +31,13 @@ public class LoginController {
         model.addAttribute("loginformuser", new LoginForm());
         return "login";
     }
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String getHomepage(Model model){
         model.addAttribute("loginformuser", new LoginForm());
         return "home";
     }
+
     @RequestMapping(value = "/loginuser", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginformuser") LibraryUserDTO userDto, Model model){
         String message = userService.login(userDto);
@@ -46,5 +48,4 @@ public class LoginController {
         else
             return "login";
     }
-
 }

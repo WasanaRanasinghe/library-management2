@@ -14,16 +14,25 @@ import java.util.List;
  */
 @Entity
 public class Status {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long statusCode;
     private String statusDescription;
-
     @OneToMany(mappedBy = "statusCode")
     private List<LibraryUser> user;
-
     @OneToMany(mappedBy = "availabilityStatus")
     private List<Status> availabilityStatus;
+
+
+    /*
+    * 1 - Active
+    * 2 - Deactive
+    * 3 - Available
+    * 4 - Borrowed
+    * 5 - Deleted
+    *
+    * */
 
     public void setStatusCode(Long statusCode) {
         this.statusCode = statusCode;
@@ -40,7 +49,4 @@ public class Status {
     public String getStatusDescription() {
         return statusDescription;
     }
-    
-    
-    
 }

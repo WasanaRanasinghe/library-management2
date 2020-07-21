@@ -42,8 +42,6 @@ public class BookController {
             List<BookDTO> allBooks = bookService.getAllBooks();
             model.addAttribute("allBooks", allBooks);
         }
-
-
         return "manage_book";
     }
 
@@ -56,8 +54,6 @@ public class BookController {
             List<BookDTO> allBooks = bookService.getAllBooks();
             model.addAttribute("allBooks", allBooks);
         }
-
-
         return "view_book";
     }
 
@@ -107,5 +103,4 @@ public class BookController {
         bookService.delete(id);
         return "redirect:/books";
     }
-
 }

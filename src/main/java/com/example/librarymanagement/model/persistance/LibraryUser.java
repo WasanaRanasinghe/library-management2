@@ -115,7 +115,6 @@ public class LibraryUser {
         this.userRoleId = userRoleId;
     }
 
-
     public int getState() {
         return state;
     }

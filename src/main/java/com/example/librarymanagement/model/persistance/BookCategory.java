@@ -37,7 +37,4 @@ public class BookCategory {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
-    
-    
-    
 }

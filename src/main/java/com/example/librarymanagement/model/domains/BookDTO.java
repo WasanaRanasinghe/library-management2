@@ -9,7 +9,6 @@ public class BookDTO {
     private String language;
     private Status availabilityStatus;
 
-
     public Long getBookId() {
         return bookId;
     }

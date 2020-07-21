@@ -29,7 +29,4 @@ public class AuthorDTO {
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
-    
-    
-    
 }

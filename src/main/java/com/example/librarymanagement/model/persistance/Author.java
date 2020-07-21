@@ -16,6 +16,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long authorId;
@@ -36,7 +37,4 @@ public class Author {
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
-    
-    
-    
 }

@@ -89,7 +89,6 @@ public class LibraryUserDTO {
         this.userRoleId = userRoleId;
     }
 
-
     public int getState() {
         return state;
     }

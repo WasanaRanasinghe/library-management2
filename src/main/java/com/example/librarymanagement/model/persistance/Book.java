@@ -31,7 +31,6 @@ public class Book {
         this.availabilityStatus = status;
     }
 
-
     @Override
     public String toString() {
         return String.format(
@@ -70,7 +69,4 @@ public class Book {
     public void setLanguage(String language) {
         this.language = language;
     }
-    
-    
-
 }
