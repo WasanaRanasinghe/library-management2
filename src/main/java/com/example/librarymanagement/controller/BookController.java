@@ -78,7 +78,6 @@ public class BookController {
     @RequestMapping(value = "/borrow", method = RequestMethod.POST)
     public String borrowBook(@ModelAttribute("newBook") BookDTO borrowedBook) {
         borrowedBook.setAvailabilityStatus(statusService.getStatusById(4));
-        System.out.println(borrowedBook.getAvailabilityStatus().getStatusDescription());
         bookService.save(borrowedBook);
         return "redirect:/viewbooks";
     }

@@ -49,14 +49,16 @@ public class UserService {
         return message;
     }
 
-    public List<LibraryUserDTO> listAll(){
+    public List<LibraryUserDTO> listAllUsers(){
         List<LibraryUser> allUsers = userRepository.findAll();
         List<LibraryUserDTO> allDtoUsers = ObjectMapperUtils.mapAll(allUsers,LibraryUserDTO.class);
         return allDtoUsers;
     }
 
-    public List<LibraryUser> listUserByRoleId(Long id){
-        return userRepository.findByUserRoleId(id);
+    public List<LibraryUserDTO> listUserByRoleId(Long id){
+        List<LibraryUser> allFilterdUsers = userRepository.findByUserRoleId(id);
+        List<LibraryUserDTO> allDtoUsers = ObjectMapperUtils.mapAll(allFilterdUsers,LibraryUserDTO.class);
+        return allDtoUsers;
     }
     
     public int save(LibraryUserDTO userDTO){
@@ -86,6 +88,7 @@ public class UserService {
     }
     
     public void delete(Long id){
+
         userRepository.deleteById(id);
     }
 }

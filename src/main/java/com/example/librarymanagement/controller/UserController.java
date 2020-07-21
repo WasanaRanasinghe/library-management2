@@ -5,6 +5,7 @@
  */
 package com.example.librarymanagement.controller;
 
+import com.example.librarymanagement.model.domains.BookDTO;
 import com.example.librarymanagement.model.domains.LibraryUserDTO;
 import com.example.librarymanagement.model.persistance.LibraryUser;
 import com.example.librarymanagement.model.persistance.Status;
@@ -44,7 +45,7 @@ public class UserController {
             model.addAttribute("allUsers",userService.listUserByRoleId(roleId));
         }
         else{
-            model.addAttribute("allUsers", userService.listAll());
+            model.addAttribute("allUsers", userService.listAllUsers());
         }
 
         return "view_users";
@@ -93,8 +94,21 @@ public class UserController {
     }
 
     @RequestMapping("/delete-user-form/{userId}")
-    public String delete(@PathVariable(name = "userId")Long id){
-        userService.delete(id);
+    public ModelAndView deleteUserForm(@PathVariable(name = "userId")Long id){
+        ModelAndView mav = new ModelAndView("delete_user_form");
+        LibraryUserDTO user = userService.get(id);
+        mav.addObject("user", user);
+        List<UserRole> role = roleService.getAllRoles();
+        mav.addObject("roles",role);
+        List<Status> userstatus = statusService.getAllStatus();
+        mav.addObject("userstatus",userstatus);
+        return mav;
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteUser(@ModelAttribute("deleteUser") LibraryUserDTO deletedUser) {
+        deletedUser.setUserStatus(statusService.getStatusById(5));
+        userService.save(deletedUser);
         return "redirect:/users";
     }
 }
